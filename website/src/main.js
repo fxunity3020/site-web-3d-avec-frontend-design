@@ -45,7 +45,29 @@ function suivreLesTemps() {
   }
 }
 
-if (!reduit) {
+const mobile = matchMedia("(max-width: 820px), (pointer: coarse)").matches;
+
+async function demarrerScene() {
+  const { creerScene } = await import("./scene.js");
+  const scene = await creerScene({ canvas: document.getElementById("scene"), mobile });
+  if (!scene) return null;
+  const { creerPoussiere } = await import("./poussiere.js");
+  const poussiere = creerPoussiere(scene.THREE, { nombre: mobile ? 300 : 900, couleurs: ["#F2C97A", "#D5B27C"] });
+  scene.ajouter(poussiere.points);
+  scene.surImage(poussiere.animer);
+  return scene;
+}
+
+const quandLibre = window.requestIdleCallback || ((f) => setTimeout(f, 200));
+
+if (reduit) {
+  racine.dataset.scene = "off";
+} else {
+  quandLibre(() =>
+    demarrerScene().catch(() => {
+      racine.dataset.scene = "off";
+    }),
+  );
   suivreLesTemps();
   demarrerFilm().catch(() => {
     racine.dataset.film = "repli";

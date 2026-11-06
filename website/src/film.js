@@ -11,6 +11,7 @@ export function creerFilm({ canvas, affiche, dossier, total }) {
   const racine = document.documentElement;
   let voulu = 0;
   let dessinee = -1;
+  let exactRequis = true;
 
   const nom = (i) => `${dossier}f${String(i + 1).padStart(3, "0")}.webp`;
 
@@ -25,6 +26,8 @@ export function creerFilm({ canvas, affiche, dossier, total }) {
   function dessiner(force = false) {
     const i = plusProche(voulu);
     if (i < 0 || (i === dessinee && !force)) return;
+    // Premier dessin : seulement l'image exacte, pour passer de l'affiche au film sans saut.
+    if (dessinee < 0 && exactRequis && i !== voulu) return;
     const im = images[i];
     const { width: W, height: H } = canvas;
     const echelle = Math.max(W / im.naturalWidth, H / im.naturalHeight);
@@ -66,6 +69,7 @@ export function creerFilm({ canvas, affiche, dossier, total }) {
     for (let k = 0; k < ordre.length; k += LOT) {
       await Promise.all(ordre.slice(k, k + LOT).map(charger));
     }
+    exactRequis = false;
     if (!pretes.some(Boolean)) racine.dataset.film = "repli";
     else dessiner();
   })();
