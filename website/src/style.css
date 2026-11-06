@@ -90,7 +90,7 @@ button:focus-visible { outline: 2px solid var(--ambre); outline-offset: 3px; }
 main, footer { position: relative; z-index: 1; }
 
 /* Le hero : cinq temps sur la visite filmée */
-#histoire { position: relative; }
+#histoire { position: relative; overflow-x: clip; }
 .temps {
   min-height: 120vh;
   display: flex;
