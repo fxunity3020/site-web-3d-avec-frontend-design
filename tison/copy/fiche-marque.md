@@ -143,6 +143,7 @@ Image 16:9. Un sauna baril en cèdre, vu de trois-quarts, posé dans une clairi�
 - Pas de fond crème ou blanc cassé, pas de mots en italique accentués dans les titres, pas de libellés numérotés « 01 / 02 / 03 », pas de petits libellés en police à chasse fixe.
 - Pas de boutons en forme de pilule, pas de titres remplis d'un dégradé, pas d'émojis comme icônes, pas de trois cartes identiques en rangée.
 - Pas de dégradé violet-bleu, pas d'effet verre sur toutes les cartes, pas de grandes zones d'un bleu vif saturé, pas de numéro de téléphone géant posé dans le vide.
+- Ajouté à la Phase 4 : pas de texte posé sur le sauna dans le film (la courbe défilement → film garde chaque texte sur une image où le côté gauche est calme) ; pas de cartes pour les modèles (rangées de fiche d'atelier) ; pas d'étapes numérotées (la démarche se lit en jours et en semaines).
 
 ## 18. Expérience
 
@@ -154,6 +155,10 @@ La 3D générée n'a pas d'intérieur : seul un film peut entrer par la porte. L
 - Mouvement : le drone descend lentement vers la clairière, fait un demi-tour à trois-quarts autour du sauna baril (bout en cèdre et cerclage en inox, puis profil avec la cheminée qui fume), se place face à la porte entrouverte et avance doucement à travers la porte.
 - Lumière : nuit d'hiver bleutée, contour orange braise sur le bois, lueur chaude qui sort de la porte, vapeur et braises qui montent. Pendant l'orbite, le côté opposé au sauna reste calme (forêt sombre) pour les titres.
 - **Image finale, au repos** : l'intérieur du sauna, vu depuis l'entrée. Deux bancs de cèdre doré en gradins à gauche et au centre, le poêle en acier noir à droite avec sa petite porte où rougeoient les flammes et ses pierres qui fument, une fine vapeur qui flotte dans la lumière dorée, la petite fenêtre ronde du fond qui montre la nuit bleue. Composition calme, centre dégagé au-dessus des bancs pour le dernier titre.
+
+**Réalisé** : film Kling 3 Omni (OpenArt), 15 s 1080p, image de départ = héros, image de fin = intérieur ; dernière image gelée 1 s. Le drone fait surtout une approche (environ 30° de rotation), pas un tour complet. Séquence de 160 images WebP. Défilement natif, sans Lenis (le CLAUDE.md du dépôt limite les bibliothèques d'animation à Three.js, GSAP et React Three Fiber).
+
+**Élément signature** : un thermomètre fixe à droite pendant l'histoire, qui passe de −24 °C dehors à 80 °C une fois la porte franchie.
 
 **Médias de référence** (OpenArt) : héros, monde (clairière et lac gelé), matière (macro du cèdre et du cerclage), intérieur (l'image finale).
 
