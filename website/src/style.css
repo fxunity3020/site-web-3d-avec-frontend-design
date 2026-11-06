@@ -134,3 +134,45 @@ main, footer { position: relative; z-index: 1; }
 html[data-film="pret"] #film { opacity: 1; }
 .affiche { transition: opacity 0.6s; }
 .affiche.cachee { opacity: 0; }
+
+/* Les temps : un seul texte visible à la fois quand le mouvement est permis */
+html[data-mouvement="plein"] .temps .copie {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+html[data-mouvement="plein"] .temps.actif .copie { opacity: 1; transform: none; }
+
+/* Le voile assombrit le côté calme où se trouve le texte */
+#voile { opacity: 0; transition: opacity 0.6s, background 0.6s; }
+html[data-cote] #voile { opacity: 1; }
+html[data-cote="gauche"] #voile { background: linear-gradient(90deg, rgba(11, 32, 38, 0.82), rgba(11, 32, 38, 0) 58%); }
+html[data-cote="droit"] #voile { background: linear-gradient(270deg, rgba(11, 32, 38, 0.82), rgba(11, 32, 38, 0) 58%); }
+html[data-cote="centre"] #voile { background: linear-gradient(0deg, rgba(11, 32, 38, 0.85), rgba(11, 32, 38, 0) 60%); }
+.cote-centre .copie { top: 52vh; }
+
+/* Halo sombre et doux derrière chaque texte du hero : lisible sur la partie la plus chargée du film */
+.temps .copie { isolation: isolate; }
+.temps .copie::before {
+  content: "";
+  position: absolute;
+  inset: -18% -22%;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(11, 32, 38, 0.78), rgba(11, 32, 38, 0.5) 60%, rgba(11, 32, 38, 0));
+  pointer-events: none;
+}
+.temps p { font-size: var(--t-m); line-height: 1.45; }
+
+@media (max-width: 820px) {
+  .temps .copie { top: 12vh; }
+  .cote-droit, .cote-centre { justify-content: flex-start; text-align: left; }
+  .cote-centre .actions { justify-content: flex-start; }
+  html[data-cote] #voile { background: linear-gradient(180deg, rgba(11, 32, 38, 0.9), rgba(11, 32, 38, 0.55) 45%, rgba(11, 32, 38, 0) 70%); }
+  .cote-centre .copie { top: 12vh; }
+}
+
+/* Moins de mouvement : affiche fixe, tous les textes visibles, hero de hauteur normale */
+html[data-mouvement="reduit"] #film { display: none; }
+html[data-mouvement="reduit"] #voile { opacity: 1; background: rgba(11, 32, 38, 0.6); }
+html[data-mouvement="reduit"] .temps { min-height: auto; padding-block: 18vh; }
+html[data-mouvement="reduit"] .temps .copie { position: static; }
