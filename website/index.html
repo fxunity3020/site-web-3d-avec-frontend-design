@@ -6,9 +6,11 @@
   <title>La Maison Moreno | Barbier à Les Coteaux</title>
   <meta name="description" content="Barbier à Les Coteaux : coupes, dégradés, barbe et rasage à la lame droite dans un salon d'antiquaire. Réservez en ligne sur Booksy." />
   <meta name="theme-color" content="#0B2026" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="/img/affiche.jpg" fetchpriority="high" />
 </head>
 <body>
-  <img id="affiche" class="affiche" alt="" width="1920" height="1080" />
+  <img id="affiche" class="affiche" src="/img/affiche.jpg" alt="" width="1920" height="1080" fetchpriority="high" />
   <canvas id="film" class="plein-ecran" aria-hidden="true"></canvas>
   <canvas id="scene" class="plein-ecran" aria-hidden="true"></canvas>
   <div id="voile" aria-hidden="true"></div>
@@ -17,7 +19,7 @@
     <section id="histoire" aria-label="Visite du salon">
       <div class="temps cote-gauche" data-temps="1">
         <div class="copie">
-          <img class="logo" alt="La Maison Moreno, barbier" width="800" height="583" />
+          <img class="logo" src="/img/logo.webp" alt="La Maison Moreno, barbier" width="800" height="559" />
           <h1>Barbier à Les Coteaux</h1>
           <p>Prenez place. Ici, on prend le temps de bien faire.</p>
         </div>
