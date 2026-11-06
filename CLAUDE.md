@@ -1,3 +1,49 @@
+# Workflow de développement
+
+Pour tout travail sur le site (conception, développement, correction, audit), suis le workflow décrit dans ce fichier :
+
+@.claude/workflow.md
+
+## Stack 3D prévue
+
+Le dépôt ne contient pas encore de code de site. Pour les expériences 3D, le projet utilisera ces trois technologies, et seulement celles-ci :
+
+- **Three.js** : moteur 3D dans le navigateur.
+- **GSAP** : animations, défilement et effets cinématiques.
+- **React Three Fiber** : Three.js sous forme de composants React.
+
+Avant d'écrire du code avec l'une de ces bibliothèques, consulte sa documentation actuelle avec Context7 et vérifie la version installée dans le projet. N'ajoute pas d'autre bibliothèque 3D ou d'animation sans l'accord de l'utilisateur.
+
+## Outils du workflow dans cet environnement
+
+Vérifie au début de chaque tâche que l'outil est bien chargé (skill, agent, serveur MCP ou commande listés dans ta session). S'il manque, dis-le à l'utilisateur et continue sans lui, sans faire semblant de l'avoir utilisé.
+
+| Outil du workflow | Ce qui est installé | Comment l'utiliser |
+|---|---|---|
+| Superpowers | Plugin `superpowers` | Skills `superpowers:brainstorming`, `superpowers:writing-plans`, `superpowers:test-driven-development`, `superpowers:systematic-debugging` |
+| Context7 | Serveur MCP `context7` | Outils `resolve-library-id` puis `query-docs` (voir la section Context7 plus bas) |
+| Frontend Design | Skill `frontend-design` | Phase 4 |
+| Code Simplifier | Plugin `code-simplifier` | Agent `code-simplifier:code-simplifier`, uniquement en phase 6 |
+| Security Guidance | Plugin `security-guidance` | Automatique (hooks). Pour une revue ciblée, la commande `/security-review` |
+| Code Review | Commande intégrée `/code-review` | Sur le diff local. Le plugin `/code-review:code-review` ne marche pas dans le cloud (voir « Revue avant livraison ») |
+| Playwright | Serveur MCP `playwright` | Outils `browser_*` |
+| Lighthouse | CLI `lighthouse` 13.5.0 | Voir la section « Audit Lighthouse » |
+
+## Arbitrages entre outils
+
+- **Revue de code** : `superpowers:requesting-code-review` et `/code-review` couvrent le même besoin. Utilise `/code-review` et ne fais pas les deux.
+- **Sécurité** : les hooks de `security-guidance` tournent déjà à chaque tour et à chaque commit. Ne lance `/security-review` que pour les changements à risque listés dans « Revue avant livraison ».
+- **Simplification** : l'agent `code-simplifier` se décrit comme proactif. Dans ce projet, ne le lance qu'en phase 6. Ses conventions par défaut (fonctions `function`, React, types explicites) ne s'appliquent que si le projet les utilise déjà. Présente ses modifications à l'utilisateur comme les autres.
+- **Superpowers et validation** : Superpowers pousse à enchaîner plan puis exécution. Les points d'arrêt du workflow restent prioritaires : attends l'accord de l'utilisateur après le plan (phase 2) et après la direction artistique (phase 4).
+- **Petites retouches** : pour une correction de quelques lignes, ne déroule pas les douze phases. Fais la modification, puis la revue et les tests qui la concernent.
+
+## Limites de l'environnement cloud à signaler
+
+- Pas de GPU : les mesures de performance Lighthouse sur les pages WebGL sont faussées.
+- `gh` ne sert qu'à la recherche : il ne peut pas lire ni commenter les pull requests.
+- Context7 sans clé API : le quota est partagé et peut être épuisé.
+- Le catalogue PWA de Lighthouse n'existe plus depuis la version 12.
+
 # Documentation des bibliothèques (Context7)
 
 <!-- Règle officielle Context7 : https://github.com/upstash/context7/blob/master/rules/context7-mcp.md -->
