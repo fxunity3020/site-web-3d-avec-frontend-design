@@ -6,13 +6,13 @@ Pour tout travail sur le site (conception, développement, correction, audit), s
 
 ## Stack 3D prévue
 
-Le dépôt ne contient pas encore de code de site. Pour les expériences 3D, l'utilisateur prévoit notamment :
+Le dépôt ne contient pas encore de code de site. Pour les expériences 3D, le projet utilisera ces trois technologies, et seulement celles-ci :
 
 - **Three.js** : moteur 3D dans le navigateur.
 - **GSAP** : animations, défilement et effets cinématiques.
 - **React Three Fiber** : Three.js sous forme de composants React.
 
-Avant d'écrire du code avec l'une de ces bibliothèques, consulte sa documentation actuelle avec Context7 et vérifie la version installée dans le projet. Si l'utilisateur ajoute d'autres technologies, complète cette liste.
+Avant d'écrire du code avec l'une de ces bibliothèques, consulte sa documentation actuelle avec Context7 et vérifie la version installée dans le projet. N'ajoute pas d'autre bibliothèque 3D ou d'animation sans l'accord de l'utilisateur.
 
 ## Outils du workflow dans cet environnement
 
