@@ -4,7 +4,7 @@ Date : 2026-11-06. Statut : en attente d'approbation.
 
 ## 1. Intention
 
-La Maison Moreno est un barbier au 301, montée du Comté, local 3, à Les Coteaux (Québec), J7X 0B1. Téléphone : (450) 267-8792. Note Google : 5,0 sur 144 avis.
+La Maison Moreno est un barbier au 301, montée du Comté, local 3, à Les Coteaux (Québec), J7X 1A8. Téléphone : (450) 267-8792. Note Google : 5,0 sur 144 avis.
 
 Le site a deux buts :
 

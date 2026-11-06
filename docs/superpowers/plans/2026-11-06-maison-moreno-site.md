@@ -33,7 +33,7 @@
 - Pas d'avis inventés : uniquement des avis recopiés mot pour mot, avec prénom et initiale. Pas d'image IA présentée comme un barbier ou une coupe.
 - Coordonnées identiques partout :
   - « La Maison Moreno » ;
-  - « 301, montée du Comté, local 3, Les Coteaux (Québec) J7X 0B1 » ;
+  - « 301, montée du Comté, local 3, Les Coteaux (Québec) J7X 1A8 » ;
   - « 450 267-8792 » (lien `tel:+14502678792`) ;
   - Booksy : `https://lamaisonmoreno.booksy.com`.
 - Toute info non fournie par le client est entourée de `<span class="a-confirmer">…</span>` et listée dans `website/README.md`.
@@ -98,13 +98,25 @@
 
   Le contenu réel :
   - **Hero** : le logo, la `h1` « Barbier à Les Coteaux » et 5 lignes de temps courtes qui s'inspirent des avis (prendre le temps, la minutie, l'accueil, les dégradés et la barbe, la réservation).
-  - **Services** : une liste en `<dl>`. Prix et durée entre `.a-confirmer` tant que le client ne les a pas fournis.
-  - **Équipe** : Jérémy, Fred, Orélie et Edwin en cartels typographiques, sans photo. La spécialité de Fred est « dégradés », d'après l'avis de Camille F. Les autres sont entre `.a-confirmer`.
+  - **Services** : une liste en `<dl>`, avec noms et durées tirés de Booksy :
+    - Coupe cheveux (dégradés à la peau, coupe aux ciseaux), 45 min ;
+    - Coupe cheveux et barbe à la lame droite, 1 h ;
+    - Taille de barbe à la lame droite, 45 min ;
+    - Rasage crânien à la lame droite et barbe, 45 min à 1 h ;
+    - Skin fade à la lame droite, 45 min ;
+    - Coupe détente (2 serviettes chaudes et 1 froide, huiles, massage de la tête, du visage, du cou et des épaules), 1 h ;
+    - Service Platinum, 1 h 30.
+    - Les prix sont « varie » sur Booksy : afficher « Prix selon le barbier, voir Booksy » plutôt qu'un chiffre inventé.
+  - **Équipe** : Edwhin (propriétaire, maître barbier), Jérémy, Frédéric, Vivi (barbière) et Olivia, en cartels typographiques sans photo.
+    - Les spécialités viennent des services Booksy de chacun : Edwhin fait le skin fade, la coupe détente et le Platinum ; Fred, les dégradés, d'après l'avis de Camille F.
+    - Tout le reste est entre `.a-confirmer`.
+  - **Commodités** (Booksy) : stationnement, cartes de crédit, accès pour personnes handicapées, Wi-Fi, programme de fidélité. Ouverture dès 5 h, avec des frais pour les rendez-vous entre 5 h et 7 h.
+  - **Réseaux** : Facebook (`https://www.facebook.com/profile.php?id=61555758925411`) et Instagram (`https://www.instagram.com/latincutsbyeddy/`).
   - **Avis** : trois avis Google recopiés mot pour mot :
     - « Excellent service! Mon conjoint est toujours très satisfait de ses rendez-vous avec Fred. L'accueil est chaleureux, il est très flexible dans ses disponibilités et maîtrise parfaitement les coupes avec un « fade ». On le recommande sans hésitation! » (Camille F.) ;
     - « Mon conjoint est très satisfait de sa coupe réalisée par Jérémy. Professionnel, accueillant, à l'écoute et très sympathique, il a pris le temps de comprendre ses attentes et le résultat est impeccable. » (Mélissa M.) ;
     - la phrase « Tres méticuleux, attentionnée, belle ambiance et deco. » sans auteur, puisque le nom n'est pas connu. Elle est présentée comme un extrait du résumé Google.
-    - La note est affichée : 5,0 sur 144 avis Google.
+    - La note est affichée : 5,0 sur 144 avis Google et 5,0 sur 324 avis Booksy.
   - **Nous trouver** : l'adresse avec un lien Google Maps (recherche par adresse), les heures entre `.a-confirmer` (« ferme à 20 h » est le seul fait connu), le téléphone et Booksy.
 
   Les styles : les variables de la palette, une échelle typographique, les sections pleines sur fond `--nuit`, le focus visible et `prefers-reduced-motion`.
@@ -358,7 +370,7 @@
   - Le JSON-LD se lit avec `JSON.parse`, et vérifie :
     - `@type === "HairSalon"` ;
     - `telephone === "+1-450-267-8792"` ;
-    - `address.postalCode === "J7X 0B1"` ;
+    - `address.postalCode === "J7X 1A8"` ;
     - `address.addressLocality === "Les Coteaux"` ;
     - `aggregateRating.ratingValue === "5.0"` et `aggregateRating.reviewCount === "144"`.
   - `/robots.txt` et `/sitemap.xml` répondent 200 sur `vite preview`.
