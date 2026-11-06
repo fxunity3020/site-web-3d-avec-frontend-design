@@ -1,3 +1,17 @@
 {
-  "enabledMcpjsonServers": ["context7", "playwright"]
+  "enabledMcpjsonServers": [
+    "context7",
+    "playwright"
+  ],
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "security-guidance@claude-plugins-official": true
+  }
 }
