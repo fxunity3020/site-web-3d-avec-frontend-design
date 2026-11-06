@@ -110,7 +110,7 @@ Points d'intérêt 3D possibles : le cerclage en inox, la porte vitrée, le poê
 1. L'histoire en 5 temps (héros)
 2. Énoncé d'impact
 3. Les modèles : Baril, Cabine, Sur mesure
-4. Explorer en 3D (options B et C) ou Matériaux et savoir-faire (options A et D) : décidé à la Phase 2
+4. Matériaux et savoir-faire (option A : images de matière et du monde, cartes inclinables en 3D)
 5. De l'atelier à la première chauffe (les 5 étapes)
 6. Réalisations et avis : **retirée** tant qu'on n'a pas de vraies photos ni de vrais avis
 7. Zones desservies
@@ -122,13 +122,17 @@ Points d'intérêt 3D possibles : le cerclage en inox, la porte vitrée, le poê
 
 | Temps | Ce qu'on voit | Ligne de texte | Côté du texte |
 |---|---|---|---|
-| 1 | Trois-quarts héros : le sauna en cèdre la nuit, dans la neige, porte entrouverte, lueur orange, vapeur | **Saunas de cèdre, faits à la main dans les Laurentides.** (h1) | gauche |
-| 2 | Gros plan sur le détail signature : le bout en cèdre massif et le cerclage en inox, avec la braise en contour | **Du cèdre d'ici, séché au four, assemblé sans vis apparente.** | gauche |
-| 3 | Profil : toute la longueur du sauna, la cheminée qui fume, la petite fenêtre du poêle | **Pensé pour -30 °C. Chaud en 45 minutes.** | droit |
-| 4 | Vue large : le sauna dans sa clairière, au bord du lac gelé, épinettes noires, ciel profond | **On le livre, on le pose, il est prêt à chauffer.** | gauche |
-| 5 | Image de repos : le sauna de face, porte ouverte, intérieur chaud et doré, vapeur qui retombe | **Le tien commence par une conversation.** + bouton « Demander une soumission » | centre |
+Parcours du film (option A, voir section 18) :
 
-Les gros plans vont aux parties solides : le bout en cèdre, le cerclage, la porte, le poêle. Jamais la vitre seule ni la vapeur seule.
+| Temps | Ce qu'on voit | Ligne de texte | Côté du texte |
+|---|---|---|---|
+| 1 | Vue large en descente : le sauna en cèdre dans sa clairière enneigée, la nuit, au bord du lac gelé, lueur orange, vapeur | **Saunas de cèdre, faits à la main dans les Laurentides.** (h1) | gauche |
+| 2 | Trois-quarts rapproché : le bout en cèdre massif et le cerclage en inox, avec la braise en contour | **Du cèdre d'ici, séché au four, assemblé sans vis apparente.** | gauche |
+| 3 | Profil : toute la longueur du sauna, la cheminée qui fume | **Pensé pour -30 °C. Chaud en 45 minutes.** | droit |
+| 4 | Face à la porte entrouverte, lueur chaude et vapeur qui sort, la caméra avance | **On le livre, on le pose, il est prêt à chauffer.** | gauche |
+| 5 | Image de repos : l'intérieur, bancs dorés, poêle qui rougeoie, vapeur | **Le tien commence par une conversation.** + bouton « Demander une soumission » | centre |
+
+Les côtés du texte seront ajustés à la Phase 4 d'après le côté vraiment calme de chaque image du film. Les gros plans vont aux parties solides : le bout en cèdre, le cerclage, la porte, le poêle. Jamais la vitre seule ni la vapeur seule.
 
 ## 16. Brief de l'image héros
 
@@ -142,7 +146,16 @@ Image 16:9. Un sauna baril en cèdre, vu de trois-quarts, posé dans une clairi�
 
 ## 18. Expérience
 
-*(Décidée à la Phase 2.)*
+**Option A : film cinématique + images.** Demande de Sylvain : *un plan de drone qui fait le tour du sauna et qui entre par la porte.*
+La 3D générée n'a pas d'intérieur : seul un film peut entrer par la porte. Le film avance et recule au défilement (séquence d'images), avec les braises vivantes par-dessus (atmosphère `braises`).
+
+**Brief du film**
+- Un seul plan continu de 12 à 16 s, sans coupure, 16:9, 1080p, sans audio.
+- Mouvement : le drone descend lentement vers la clairière, fait un demi-tour à trois-quarts autour du sauna baril (bout en cèdre et cerclage en inox, puis profil avec la cheminée qui fume), se place face à la porte entrouverte et avance doucement à travers la porte.
+- Lumière : nuit d'hiver bleutée, contour orange braise sur le bois, lueur chaude qui sort de la porte, vapeur et braises qui montent. Pendant l'orbite, le côté opposé au sauna reste calme (forêt sombre) pour les titres.
+- **Image finale, au repos** : l'intérieur du sauna, vu depuis l'entrée. Deux bancs de cèdre doré en gradins à gauche et au centre, le poêle en acier noir à droite avec sa petite porte où rougeoient les flammes et ses pierres qui fument, une fine vapeur qui flotte dans la lumière dorée, la petite fenêtre ronde du fond qui montre la nuit bleue. Composition calme, centre dégagé au-dessus des bancs pour le dernier titre.
+
+**Médias de référence** (OpenArt) : héros, monde (clairière et lac gelé), matière (macro du cèdre et du cerclage), intérieur (l'image finale).
 
 ## 19. Référencement local
 

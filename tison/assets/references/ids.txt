@@ -1,0 +1,4 @@
+hero: historyId Qvt1S7ReFlnzIo10Qc74, resource ZHXWKysjpdcMhrXtICRq (OpenArt, GPT Image 2.6 Flare)
+monde: 72fgw3ISEPQpR8EBsRme resource d4ydXjyc6HWrFmMnEB5a
+matiere: TubqeUbgX6C7mK4EDiFA resource xrNQTzpQlDxxXHFK30lp
+interieur: RtW2sPetM1bgmAABIbVg resource NtrMAw3XDYDrmD3qQS6W
