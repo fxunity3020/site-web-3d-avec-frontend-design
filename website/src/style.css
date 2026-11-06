@@ -1,0 +1,130 @@
+/* La Maison Moreno : un cabinet de curiosités. Pétrole, or du logo, ambre des lampes. */
+:root {
+  --petrole: #12313a;
+  --nuit: #0b2026;
+  --or: #d5b27c;
+  --ambre: #f2c97a;
+  --rouille: #9c4a22;
+  --bois: #3b2214;
+  --ivoire: #ede3cf;
+  --ivoire-doux: #c9c0ae;
+  --filet: color-mix(in srgb, var(--or) 45%, transparent);
+
+  --titre: "IM Fell English", Georgia, serif;
+  --texte: "Instrument Sans Variable", system-ui, sans-serif;
+
+  --t-xs: 0.875rem;
+  --t-s: 1rem;
+  --t-m: 1.25rem;
+  --t-l: clamp(1.75rem, 3.2vw, 2.6rem);
+  --t-xl: clamp(2.4rem, 5.6vw, 4.6rem);
+
+  --gouttiere: max(20px, 6vw);
+  --barre-mobile: 0px;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  background: var(--nuit);
+  color: var(--ivoire);
+  font: 400 var(--t-s) / 1.6 var(--texte);
+  -webkit-text-size-adjust: 100%;
+}
+
+body { margin: 0; overflow-x: clip; }
+
+img { max-width: 100%; }
+
+h1, h2, h3 {
+  font-family: var(--titre);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0 0 0.4em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--t-xl); }
+h2 { font-size: var(--t-l); }
+h3 { font-size: var(--t-m); }
+p { margin: 0 0 1em; max-width: 62ch; }
+
+a { color: var(--ambre); text-underline-offset: 0.2em; }
+a:focus-visible,
+button:focus-visible { outline: 2px solid var(--ambre); outline-offset: 3px; }
+
+.a-confirmer { color: var(--ivoire-doux); font-style: italic; }
+
+/* Boutons : coins légèrement adoucis, jamais en pilule */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.8em 1.3em;
+  border-radius: 3px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.btn-principal { background: var(--rouille); color: var(--ivoire); border-color: #c2693b; }
+.btn-principal:hover { background: #b0572a; }
+.btn-secondaire { color: var(--ivoire); border-color: var(--filet); }
+.btn-secondaire:hover { border-color: var(--or); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; max-width: none; }
+
+/* Couches fixes derrière la page : affiche, film, scène 3D, voile */
+.affiche,
+.plein-ecran {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100lvh;
+  object-fit: cover;
+  z-index: 0;
+}
+#scene { pointer-events: none; }
+#voile { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+main, footer { position: relative; z-index: 1; }
+
+/* Le hero : cinq temps sur la visite filmée */
+#histoire { position: relative; }
+.temps {
+  min-height: 120vh;
+  display: flex;
+  align-items: flex-start;
+  padding: 0 var(--gouttiere);
+}
+.temps .copie {
+  position: sticky;
+  top: 22vh;
+  max-width: 34rem;
+  padding-block: 1.5rem;
+  text-shadow: 0 2px 24px rgba(11, 32, 38, 0.7);
+}
+.temps .logo { width: min(320px, 70vw); height: auto; margin-bottom: 1.2rem; }
+.cote-droit { justify-content: flex-end; }
+.cote-centre { justify-content: center; text-align: center; }
+.cote-centre .actions { justify-content: center; }
+
+/* Sections pleines : elles couvrent le film */
+.section,
+.pied { background: var(--nuit); }
+.section { padding-block: clamp(72px, 10vw, 140px); }
+.contenu {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(var(--gouttiere), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gouttiere), env(safe-area-inset-right, 0px));
+}
+.chapo { color: var(--ivoire-doux); font-size: var(--t-m); }
+
+.pied { border-top: 1px solid var(--filet); padding-block: 48px calc(48px + var(--barre-mobile)); }
+.pied .nom { font-family: var(--titre); font-size: var(--t-m); }
+.pied .reseaux { display: flex; gap: 20px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

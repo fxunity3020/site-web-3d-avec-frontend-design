@@ -1,2 +1,9 @@
 # Captures et snapshots écrits par le serveur MCP Playwright
 .playwright-mcp/
+
+# Site
+website/node_modules/
+website/dist/
+website/test-results/
+website/playwright-report/
+.superpowers/
