@@ -40,3 +40,29 @@ Pour chaque problème, donne le fichier et la ligne, ce qui se passe concrèteme
 - N'applique aucune correction sans l'accord explicite de l'utilisateur.
 - Ne commite pas, ne pousse pas et ne déploie pas tant qu'un problème Critique ou Élevé reste ouvert, sauf si l'utilisateur décide de passer outre.
 - Ne publie aucun commentaire sur GitHub sans accord.
+
+# Audit Lighthouse
+
+Lighthouse CLI 13.5.0 est installé au démarrage des sessions cloud, par le script de l'environnement. Pour auditer une page, sers-la d'abord en local si besoin, puis lance :
+
+```bash
+CHROME_PATH=/opt/pw-browsers/chromium lighthouse <URL> \
+  --chrome-flags="--headless=new --no-sandbox" \
+  --output=html --output=json --output-path=<dossier>/<nom> --quiet
+```
+
+Écris les rapports dans le dossier scratchpad de la session, jamais dans le dépôt. Envoie le rapport HTML à l'utilisateur.
+
+## Catégories
+
+- Lighthouse 13 audite Performance, Accessibility, Best Practices, SEO et Agentic Browsing.
+- La catégorie PWA a été retirée à la version 12. Si l'utilisateur demande un audit PWA, utilise `npx -y lighthouse@11.7.1 <URL> --only-categories=pwa` (même `CHROME_PATH` et mêmes options) et précise que cette version n'est plus maintenue.
+
+## Limites de l'environnement cloud
+
+- Le conteneur n'a pas de GPU : WebGL y est rendu par le processeur. Sur les pages avec une scène 3D animée, les mesures Total Blocking Time, Speed Index et le score Performance sont faussés, et Lighthouse peut signaler « The page loaded too slowly ». Dis-le dans le rapport, et pour la performance réelle d'une page 3D, propose PageSpeed Insights sur le site en ligne ou un audit sur une vraie machine.
+- Les erreurs « TraceEngine » affichées dans le terminal sont internes à Lighthouse : vérifie `runtimeError` et les audits en erreur dans le JSON avant de conclure qu'un audit a échoué.
+
+## Rapport
+
+Classe les problèmes trouvés selon les niveaux de gravité de la section « Revue avant livraison », du plus important au moins important d'après le poids de l'audit dans sa catégorie. Pour chaque problème, propose une correction concrète, sans l'appliquer sans l'accord de l'utilisateur.
