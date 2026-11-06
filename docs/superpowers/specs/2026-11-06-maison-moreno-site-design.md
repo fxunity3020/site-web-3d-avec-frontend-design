@@ -49,6 +49,7 @@ On ne se sent pas pressé. Le travail est méticuleux, les dégradés sont maît
 | Hero | Visite filmée du vrai salon : départ à droite sur les stations, tour par le salon d'attente, arrivée sous le plafond hexagonal |
 | Film | Kling 4.0 via OpenArt, généré à partir des 3 photos du client, approuvé : « parfait comme vidéo ». 12 s, 1080p, sans son (`assets/videos/moreno-film.mp4`) |
 | Méthode de génération | Celle du skill `site-10k-pme`, uniquement pour la génération des médias |
+| Transitions entre sections | **Le cadre doré** : un cadre ancien sculpté et doré, en vraie 3D (Three.js), s'avance au défilement. La caméra le traverse et la section suivante apparaît à l'intérieur, comme si on entrait dans un tableau du salon. Les reflets dorés bougent avec la lumière. Une seule transition, utilisée partout. Allégée sur téléphone, remplacée par un fondu si l'utilisateur a demandé moins de mouvement. |
 
 ## 4. Structure de la page (proposition)
 
@@ -73,7 +74,8 @@ Une barre « Réserver / Appeler » reste en bas de l'écran sur mobile après l
   - Pas de Lenis : la bibliothèque n'est pas autorisée par le `CLAUDE.md`.
   - Si un défilement adouci est voulu, ScrollSmoother fait partie de GSAP.
 - **Le film en séquence d'images WebP** (environ 140 images, moins de 8 Mo au total). C'est la méthode fiable sur iPhone.
-- **Three.js** pour une seule couche d'atmosphère : une fine poussière dorée qui flotte dans la lumière des lampes, par-dessus le film.
+- **Three.js** pour la transition du cadre doré entre les sections. Le cadre est construit en code (moulures extrudées, matériau or métallique, éclairage ambré), sans modèle 3D à générer ni crédit à dépenser.
+- **Three.js** aussi pour une fine poussière dorée qui flotte dans la lumière des lampes, par-dessus le film.
   - Elle est désactivée si l'utilisateur a demandé moins de mouvement.
   - Elle est allégée sur téléphone.
 - **L'image de départ du film comme affiche** : c'est l'image qui s'affiche en premier et elle sert de repli si le film ne charge pas.
