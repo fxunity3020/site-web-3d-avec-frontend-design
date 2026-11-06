@@ -55,7 +55,28 @@ async function demarrerScene() {
   const poussiere = creerPoussiere(scene.THREE, { nombre: mobile ? 300 : 900, couleurs: ["#F2C97A", "#D5B27C"] });
   scene.ajouter(poussiere.points);
   scene.surImage(poussiere.animer);
+  // La poussière ne flotte que tant que la visite filmée remplit l'écran.
+  const histoire = document.getElementById("histoire");
+  scene.surImage(() => {
+    poussiere.points.visible = histoire.getBoundingClientRect().bottom >= innerHeight;
+  });
+  const { demarrerTransitions } = await import("./transitions.js");
+  await demarrerTransitions(scene, { mobile });
+  ScrollTrigger.refresh();
   return scene;
+}
+
+// Sans scène 3D : les sections apparaissent en fondu.
+function fonduSansScene() {
+  for (const section of document.querySelectorAll(".section")) {
+    gsap.from(section.querySelector(".contenu"), {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: { trigger: section, start: "top 85%" },
+    });
+  }
 }
 
 const quandLibre = window.requestIdleCallback || ((f) => setTimeout(f, 200));
@@ -64,9 +85,12 @@ if (reduit) {
   racine.dataset.scene = "off";
 } else {
   quandLibre(() =>
-    demarrerScene().catch(() => {
-      racine.dataset.scene = "off";
-    }),
+    demarrerScene()
+      .then((scene) => scene || fonduSansScene())
+      .catch(() => {
+        racine.dataset.scene = "off";
+        fonduSansScene();
+      }),
   );
   suivreLesTemps();
   demarrerFilm().catch(() => {
