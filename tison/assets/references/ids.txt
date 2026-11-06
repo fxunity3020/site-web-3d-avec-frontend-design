@@ -2,3 +2,4 @@ hero: historyId Qvt1S7ReFlnzIo10Qc74, resource ZHXWKysjpdcMhrXtICRq (OpenArt, GP
 monde: 72fgw3ISEPQpR8EBsRme resource d4ydXjyc6HWrFmMnEB5a
 matiere: TubqeUbgX6C7mK4EDiFA resource xrNQTzpQlDxxXHFK30lp
 interieur: RtW2sPetM1bgmAABIbVg resource NtrMAw3XDYDrmD3qQS6W
+film: Uei0dapMS5MMTSHPeiQa resource Bd0YOn3upgEM2BvNE7MA (Kling 3 Omni, 15 s, 1080p) https://cdn.openart.ai/openart-ai/production/2026-11/create-video/KPHuQ9OUkNysfbnnUNoS/6795eb755d710c28fc62393272a553dc-21d3ce9f-03ba-4939-bfe0-2ffa0254150d_1793978824840_948e7b2a.mp4
