@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=./",
     "preview": "vite preview",
     "test:unit": "node --test \"tests/unit/*.test.js\"",
     "test:e2e": "playwright test"

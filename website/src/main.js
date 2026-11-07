@@ -14,11 +14,11 @@ const reduit = matchMedia("(prefers-reduced-motion: reduce)").matches;
 racine.dataset.mouvement = reduit ? "reduit" : "plein";
 
 async function demarrerFilm() {
-  const manifest = await fetch("/seq/manifest.json").then((r) => r.json());
+  const manifest = await fetch("./seq/manifest.json").then((r) => r.json());
   const film = creerFilm({
     canvas: document.getElementById("film"),
     affiche: document.getElementById("affiche"),
-    dossier: params.has("noseq") ? "/seq-absent/" : "/seq/",
+    dossier: params.has("noseq") ? "./seq-absent/" : "./seq/",
     total: manifest.total,
   });
   ScrollTrigger.create({
