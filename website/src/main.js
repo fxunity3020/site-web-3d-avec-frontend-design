@@ -79,6 +79,16 @@ function fonduSansScene() {
   }
 }
 
+// Barre Réserver / Appeler sur téléphone : visible dès que les services entrent à l'écran.
+ScrollTrigger.create({
+  trigger: "#services",
+  start: "top bottom",
+  end: "max",
+  onToggle: (self) => {
+    racine.dataset.barre = self.isActive ? "on" : "off";
+  },
+});
+
 const quandLibre = window.requestIdleCallback || ((f) => setTimeout(f, 200));
 
 if (reduit) {

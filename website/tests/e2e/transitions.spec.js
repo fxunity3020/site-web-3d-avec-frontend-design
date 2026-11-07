@@ -30,3 +30,13 @@ test("moins de mouvement : pas de cadre", async ({ page }) => {
     expect(await page.evaluate((id) => getComputedStyle(document.getElementById(id)).opacity, id)).toBe("1");
   }
 });
+
+test("aucun cadre pendant la lecture d'une section", async ({ page }) => {
+  await page.goto("/");
+  await page.waitForFunction(() => document.documentElement.dataset.scene === "pret", null, { timeout: 15_000 });
+  for (const id of ["services", "equipe", "avis"]) {
+    await page.evaluate((id) => window.scrollTo(0, document.getElementById(id).offsetTop + 2), id);
+    await page.waitForTimeout(600);
+    expect(await page.evaluate(() => window.__cadre.opacite), `cadre visible en lisant #${id}`).toBe(0);
+  }
+});

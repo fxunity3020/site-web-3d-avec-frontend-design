@@ -49,6 +49,11 @@ export async function demarrerTransitions(scene, { mobile }) {
 
   function appliquer(p, section) {
     const { echelle, opacite } = etatDuCadre(p);
+    // Presque invisible : on retire le cadre et la découpe, pour ne rien laisser de figé.
+    if (opacite < 0.01) {
+      cacher(section);
+      return;
+    }
     etat.opacite = opacite;
     etat.echelle = echelle;
     cadre.visible = opacite > 0;
