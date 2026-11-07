@@ -42,12 +42,24 @@ test("on retourne une carte de l'équipe", async ({ page }) => {
 test("le carrousel des avis tourne avec les boutons", async ({ page }) => {
   await scenePrete(page);
   await allerA(page, "avis");
-  expect(await page.evaluate(() => window.__carrousel.index)).toBe(0);
-  await page.locator(".carrousel-suivant").click();
-  await page.waitForFunction(() => window.__carrousel.index === 1);
-  await page.locator(".carrousel-precedent").click();
-  await page.locator(".carrousel-precedent").click();
-  await page.waitForFunction(() => window.__carrousel.index === window.__carrousel.total - 1);
+  expect(await page.evaluate(() => window.__carrousels.avis.index)).toBe(0);
+  await page.locator("#avis .carrousel-suivant").click();
+  await page.waitForFunction(() => window.__carrousels.avis.index === 1);
+  await page.locator("#avis .carrousel-precedent").click();
+  await page.locator("#avis .carrousel-precedent").click();
+  await page.waitForFunction(() => window.__carrousels.avis.index === window.__carrousels.avis.total - 1);
+});
+
+test("l'équipe tourne aussi en carrousel, et la carte de face se retourne", async ({ page }) => {
+  await scenePrete(page);
+  await allerA(page, "equipe");
+  expect(await page.evaluate(() => window.__carrousels.equipe.total)).toBe(5);
+  await page.locator("#equipe .carrousel-suivant").click();
+  await page.waitForFunction(() => window.__carrousels.equipe.index === 1);
+  await page.waitForTimeout(1000);
+  const bouton = page.locator(".cartel").nth(1).locator("button");
+  await bouton.click();
+  await expect(bouton).toHaveAttribute("aria-pressed", "true");
 });
 
 test("saut par ancre : la section est lisible, sans vapeur", async ({ page }) => {
@@ -63,7 +75,7 @@ test("moins de mouvement : tout est lisible, sans 3D", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await page.waitForLoadState("networkidle");
-  expect(await page.evaluate(() => typeof window.__carrousel)).toBe("undefined");
+  expect(await page.evaluate(() => typeof window.__carrousels)).toBe("undefined");
   for (const id of ["services", "equipe", "avis", "nous-trouver"]) {
     await page.locator(`#${id}`).scrollIntoViewIfNeeded();
     await expect(page.locator(`#${id} h2`)).toBeVisible();

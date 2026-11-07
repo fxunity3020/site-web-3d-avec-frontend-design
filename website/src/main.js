@@ -129,7 +129,7 @@ if (reduit) {
     });
   }
   quandLibre(() => import("./lame.js").then(({ demarrerLame }) => demarrerLame({ canvas: document.getElementById("lame"), mobile })));
-  creerCarrousel(document.querySelector(".carrousel"));
+  document.querySelectorAll(".carrousel").forEach(creerCarrousel);
   quandLibre(() =>
     demarrerScene()
       .then((scene) => scene || fonduSansScene())

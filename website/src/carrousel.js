@@ -1,4 +1,4 @@
-// Le livre d'or en carrousel 3D : les avis sont posés sur un cylindre qu'on fait tourner.
+// Carrousel 3D (avis, équipe) : les éléments sont posés sur un cylindre qu'on fait tourner.
 import { gsap } from "gsap";
 
 export function creerCarrousel(racine) {
@@ -6,12 +6,13 @@ export function creerCarrousel(racine) {
   const avis = [...anneau.children];
   const total = avis.length;
   const pas = 360 / total;
-  const etat = (window.__carrousel = { index: 0, total, angle: 0 });
+  const etat = { index: 0, total, angle: 0 };
+  window.__carrousels = { ...window.__carrousels, [racine.closest("section").id]: etat };
   racine.classList.add("actif");
 
   function placer() {
     const largeur = avis[0].offsetWidth;
-    const rayon = (largeur / 2 / Math.tan(Math.PI / total)) * 1.18;
+    const rayon = (largeur / 2 / Math.tan(Math.PI / total)) * 1.08;
     anneau.style.setProperty("--rayon", `${rayon}px`);
     avis.forEach((a, i) => a.style.setProperty("--angle", `${i * pas}deg`));
   }
@@ -21,7 +22,7 @@ export function creerCarrousel(racine) {
     avis.forEach((a, i) => {
       const relatif = ((((i * pas - etat.angle) % 360) + 540) % 360) - 180;
       const face = Math.cos((relatif * Math.PI) / 180);
-      a.style.opacity = String(0.18 + 0.82 * Math.max(0, face) ** 2);
+      a.style.opacity = String(0.3 + 0.7 * Math.max(0, face) ** 1.5);
       a.toggleAttribute("inert", Math.abs(relatif) > pas / 2);
     });
   }

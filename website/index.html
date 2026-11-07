@@ -150,7 +150,9 @@
     <section id="equipe" class="section" aria-labelledby="t-equipe">
       <div class="contenu">
         <h2 id="t-equipe">L'équipe</h2>
-        <ul class="cartels">
+        <div class="carrousel carrousel-equipe" aria-roledescription="carrousel" aria-label="L'équipe">
+          <div class="carrousel-scene">
+        <ul class="anneau cartels">
           <li class="cartel">
             <div class="cartel-interieur">
               <div class="face recto">
@@ -227,6 +229,12 @@
             <button type="button" aria-pressed="false">Voir les spécialités de Olivia</button>
           </li>
         </ul>
+          </div>
+          <p class="carrousel-commandes">
+            <button type="button" class="btn btn-secondaire carrousel-precedent">Barbier précédent</button>
+            <button type="button" class="btn btn-secondaire carrousel-suivant">Barbier suivant</button>
+          </p>
+        </div>
       </div>
     </section>
 
