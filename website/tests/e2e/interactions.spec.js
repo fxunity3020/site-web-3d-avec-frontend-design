@@ -16,17 +16,6 @@ test("la vapeur accompagne la montée de la première section, puis se dissipe",
   await page.waitForFunction(() => window.__vapeur.intensite === 0, null, { timeout: 5_000 });
 });
 
-test("le plafond hexagonal s'allume sous le pointeur", async ({ page, isMobile }) => {
-  await scenePrete(page);
-  await allerA(page, "services");
-  await page.waitForTimeout(400);
-  expect(await page.evaluate(() => window.__plafond.allumees)).toBe(0);
-  const { width, height } = page.viewportSize();
-  if (isMobile) await page.touchscreen.tap(width / 2, height / 2);
-  else await page.mouse.move(width / 2, height / 2, { steps: 5 });
-  await page.waitForFunction(() => window.__plafond.allumees > 0, null, { timeout: 5_000 });
-});
-
 test("les cartes des services s'inclinent en 3D", async ({ page, isMobile }) => {
   test.skip(isMobile, "souris seulement ; sur téléphone l'inclinaison suit le défilement");
   await scenePrete(page);

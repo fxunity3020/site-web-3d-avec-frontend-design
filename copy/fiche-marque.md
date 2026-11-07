@@ -88,6 +88,7 @@ Remplacé par les vraies photos du client (décision du client). Affiche : premi
 - Pas de dégradé violet-bleu, pas d'effet verre, pas de grandes zones bleu vif, pas de numéro de téléphone géant posé dans le vide.
 - Pas de site « barbier de luxe » noir et doré générique.
 - Pas de cadre doré en 3D comme transition : le client ne l'aime pas (phase 5).
+- Pas de grille d'hexagones en fond de page (phase 5).
 - Pas de sections « journal » : colonnes de texte et listes sans images ni interaction (phase 5).
 
 ## 18. Expérience

@@ -85,6 +85,44 @@ button:focus-visible { outline: 2px solid var(--ambre); outline-offset: 3px; }
   z-index: 0;
 }
 #scene { pointer-events: none; }
+
+/* Le hero en profondeur : la visite filmée pivote légèrement avec la souris */
+#film,
+.affiche {
+  --hx: 0;
+  --hy: 0;
+  transform: perspective(1200px) rotateX(calc(var(--hx) * 1deg)) rotateY(calc(var(--hy) * 1deg)) scale(1.08);
+}
+#lueur {
+  --lx: 0;
+  --ly: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle 32vmax at calc(var(--lx) * 1px) calc(var(--ly) * 1px), rgba(242, 201, 122, 0.22), transparent 70%);
+}
+
+/* La lame droite : son canvas passe au-dessus du contenu, seulement pendant une coupe */
+#lame { z-index: 4; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
+
+/* Halo doré qui suit le curseur */
+#halo {
+  position: fixed;
+  left: -14px;
+  top: -14px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--or);
+  border-radius: 50%;
+  z-index: 5;
+  pointer-events: none;
+  transition: width 0.3s, height 0.3s, left 0.3s, top 0.3s, background 0.3s;
+}
+#halo.sur-bouton { width: 64px; height: 64px; left: -32px; top: -32px; background: rgba(213, 178, 124, 0.12); }
 #voile { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
 main, footer { position: relative; z-index: 1; }
@@ -187,6 +225,11 @@ html[data-mouvement="reduit"] .temps .copie { position: static; }
 /* Quand la scène 3D tourne, c'est elle qui peint le fond sombre et la vapeur derrière les sections. */
 html[data-scene="pret"] .section,
 html[data-scene="pret"] .pied { background: transparent; }
+/* Chaque section a son ton : la coupe en diagonale de la lame se lit d'une section à l'autre. */
+#equipe,
+#nous-trouver,
+html[data-scene="pret"] #equipe,
+html[data-scene="pret"] #nous-trouver { background: linear-gradient(180deg, var(--petrole), color-mix(in srgb, var(--petrole) 55%, var(--nuit))); }
 
 /* Services : vos photos en cartes 3D qui s'inclinent */
 .cartes-services {

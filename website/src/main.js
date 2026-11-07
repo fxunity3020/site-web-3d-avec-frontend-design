@@ -7,6 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { creerFilm } from "./film.js";
 import { inclinerCartes, retournerCartels } from "./cartes3d.js";
 import { creerCarrousel } from "./carrousel.js";
+import { suivreLaSouris } from "./survol.js";
+import { aimanter } from "./aimant.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,11 +58,10 @@ function suivreLesTemps() {
 
 async function demarrerScene() {
   // Tous les modules d'abord : la scène ne se déclare prête qu'une fois toutes ses couches en place.
-  const [{ creerScene }, { creerPoussiere }, { creerVapeur }, { creerPlafond }] = await Promise.all([
+  const [{ creerScene }, { creerPoussiere }, { creerVapeur }] = await Promise.all([
     import("./scene.js"),
     import("./poussiere.js"),
     import("./vapeur.js"),
-    import("./plafond.js"),
   ]);
   const scene = await creerScene({ canvas: document.getElementById("scene"), mobile });
   if (!scene) return null;
@@ -74,20 +75,14 @@ async function demarrerScene() {
     poussiere.points.visible = histoire.getBoundingClientRect().bottom >= innerHeight;
   });
 
-  // Fond sombre qui monte avec les sections, vapeur à leur lisière, plafond hexagonal vivant derrière.
+  // Fond sombre qui monte avec la première section, bordé de vapeur.
   const vapeur = creerVapeur(scene.THREE);
-  const plafond = creerPlafond(scene.THREE, { camera: scene.camera, mobile });
   scene.ajouter(vapeur.fond);
-  scene.ajouter(plafond.groupe);
   scene.ajouter(vapeur.vapeur);
   const premiere = document.getElementById("services");
-  const suivantes = [...document.querySelectorAll("#equipe, #avis, #nous-trouver, footer")];
   scene.surImage((dt, temps) => {
-    const hauteur = innerHeight;
-    const ratio = scene.renderer.getPixelRatio();
     const premier = premiere.getBoundingClientRect().top;
-    vapeur.maj({ premier, suivants: suivantes.map((s) => s.getBoundingClientRect().top), hauteur, ratio, temps });
-    plafond.maj({ bordGL: (hauteur - premier) * ratio, temps, dt });
+    vapeur.maj({ premier, suivants: [], hauteur: innerHeight, ratio: scene.renderer.getPixelRatio(), temps });
   });
   ScrollTrigger.refresh();
   return scene;
@@ -124,6 +119,16 @@ if (reduit) {
   racine.dataset.scene = "off";
 } else {
   inclinerCartes(".carte-service, .cartel");
+  if (matchMedia("(pointer: fine)").matches) {
+    aimanter();
+    suivreLaSouris({
+      film: document.getElementById("film"),
+      affiche: document.getElementById("affiche"),
+      lueur: document.getElementById("lueur"),
+      histoire: document.getElementById("histoire"),
+    });
+  }
+  quandLibre(() => import("./lame.js").then(({ demarrerLame }) => demarrerLame({ canvas: document.getElementById("lame"), mobile })));
   creerCarrousel(document.querySelector(".carrousel"));
   quandLibre(() =>
     demarrerScene()
