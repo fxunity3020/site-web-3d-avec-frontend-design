@@ -97,15 +97,50 @@
       <div class="contenu">
         <h2 id="t-services">Les services</h2>
         <p class="chapo">Les prix varient selon le barbier. Vous les voyez au moment de réserver sur Booksy.</p>
-        <dl class="carte">
-          <div class="ligne"><dt>Coupe cheveux</dt><dd class="duree">45 min</dd><dd class="detail">Dégradé à la peau, coupe aux ciseaux.</dd></div>
-          <div class="ligne"><dt>Coupe et barbe à la lame droite</dt><dd class="duree">1 h</dd></div>
-          <div class="ligne"><dt>Taille de barbe à la lame droite</dt><dd class="duree">45 min</dd></div>
-          <div class="ligne"><dt>Rasage crânien à la lame droite et barbe</dt><dd class="duree">45 min à 1 h</dd></div>
-          <div class="ligne"><dt>Skin fade à la lame droite</dt><dd class="duree">45 min</dd></div>
-          <div class="ligne"><dt>Coupe détente</dt><dd class="duree">1 h</dd><dd class="detail">Deux serviettes chaudes et une froide, huiles, massage de la tête, du visage, du cou et des épaules.</dd></div>
-          <div class="ligne"><dt>Service Platinum</dt><dd class="duree">1 h 30</dd><dd class="detail"><span class="a-confirmer">Description à confirmer.</span></dd></div>
-        </dl>
+        <ul class="cartes-services">
+          <li class="carte-service grande">
+            <div class="carte-interieur">
+              <img src="./img/cartes/coupe.webp" alt="Chaise de barbier en cuir noir et chrome du salon" loading="lazy" />
+              <div class="carte-texte"><h3>Coupe cheveux</h3><p class="duree">45 min</p><p class="detail">Dégradé à la peau, coupe aux ciseaux.</p></div>
+            </div>
+          </li>
+          <li class="carte-service">
+            <div class="carte-interieur">
+              <img src="./img/cartes/coupe-barbe.webp" alt="Station de barbier avec commode ancienne" loading="lazy" />
+              <div class="carte-texte"><h3>Coupe et barbe à la lame droite</h3><p class="duree">1 h</p></div>
+            </div>
+          </li>
+          <li class="carte-service">
+            <div class="carte-interieur">
+              <img src="./img/cartes/barbe.webp" alt="Commode sculptée et lampe à abat-jour" loading="lazy" />
+              <div class="carte-texte"><h3>Taille de barbe à la lame droite</h3><p class="duree">45 min</p></div>
+            </div>
+          </li>
+          <li class="carte-service">
+            <div class="carte-interieur">
+              <img src="./img/cartes/rasage.webp" alt="Chaise de barbier vintage aux accoudoirs dorés" loading="lazy" />
+              <div class="carte-texte"><h3>Rasage crânien à la lame droite et barbe</h3><p class="duree">45 min à 1 h</p></div>
+            </div>
+          </li>
+          <li class="carte-service">
+            <div class="carte-interieur">
+              <img src="./img/cartes/skin-fade.webp" alt="Chaise de barbier vintage à base dorée pailletée" loading="lazy" />
+              <div class="carte-texte"><h3>Skin fade à la lame droite</h3><p class="duree">45 min</p></div>
+            </div>
+          </li>
+          <li class="carte-service">
+            <div class="carte-interieur">
+              <img src="./img/cartes/detente.webp" alt="Salon d'attente avec fauteuil médaillon et guitare" loading="lazy" />
+              <div class="carte-texte"><h3>Coupe détente</h3><p class="duree">1 h</p><p class="detail">Deux serviettes chaudes et une froide, huiles, massage de la tête, du visage, du cou et des épaules.</p></div>
+            </div>
+          </li>
+          <li class="carte-service">
+            <div class="carte-interieur">
+              <img src="./img/cartes/platinum.webp" alt="Plafond lumineux en hexagones du salon" loading="lazy" />
+              <div class="carte-texte"><h3>Service Platinum</h3><p class="duree">1 h 30</p><p class="detail"><span class="a-confirmer">Description à confirmer.</span></p></div>
+            </div>
+          </li>
+        </ul>
         <p><a class="btn btn-principal cta-booksy" href="https://lamaisonmoreno.booksy.com" target="_blank" rel="noopener noreferrer">Voir les prix et réserver</a></p>
       </div>
     </section>
@@ -114,11 +149,81 @@
       <div class="contenu">
         <h2 id="t-equipe">L'équipe</h2>
         <ul class="cartels">
-          <li class="cartel"><h3>Edwhin</h3><p class="titre">Propriétaire, maître barbier</p><p>Skin fade à la lame droite, coupe détente et service Platinum.</p></li>
-          <li class="cartel"><h3>Jérémy</h3><p class="titre">Barbier</p><p>Coupe, barbe et rasage crânien à la lame droite.</p></li>
-          <li class="cartel"><h3>Frédéric</h3><p class="titre">Barbier</p><p>Les dégradés, la barbe et le rasage crânien à la lame droite.</p></li>
-          <li class="cartel"><h3>Vivi</h3><p class="titre">Barbière</p><p>Coupe, barbe et rasage crânien à la lame droite.</p></li>
-          <li class="cartel"><h3>Olivia</h3><p class="titre"><span class="a-confirmer">Rôle à confirmer</span></p></li>
+          <li class="cartel">
+            <div class="cartel-interieur">
+              <div class="face recto">
+                <img src="./img/cartes/mur.webp" alt="" loading="lazy" />
+                <h3>Edwhin</h3>
+                <p class="titre">Propriétaire, maître barbier</p>
+              </div>
+              <div class="face verso">
+                <h3>Edwhin</h3>
+                <p>Skin fade à la lame droite, coupe détente et service Platinum.</p>
+                <a class="btn btn-principal cta-booksy" href="https://lamaisonmoreno.booksy.com" target="_blank" rel="noopener noreferrer">Réserver avec Edwhin</a>
+              </div>
+            </div>
+            <button type="button" aria-pressed="false">Voir les spécialités de Edwhin</button>
+          </li>
+          <li class="cartel">
+            <div class="cartel-interieur">
+              <div class="face recto">
+                <img src="./img/cartes/rideau.webp" alt="" loading="lazy" />
+                <h3>Jérémy</h3>
+                <p class="titre">Barbier</p>
+              </div>
+              <div class="face verso">
+                <h3>Jérémy</h3>
+                <p>Coupe, barbe et rasage crânien à la lame droite.</p>
+                <a class="btn btn-principal cta-booksy" href="https://lamaisonmoreno.booksy.com" target="_blank" rel="noopener noreferrer">Réserver avec Jérémy</a>
+              </div>
+            </div>
+            <button type="button" aria-pressed="false">Voir les spécialités de Jérémy</button>
+          </li>
+          <li class="cartel">
+            <div class="cartel-interieur">
+              <div class="face recto">
+                <img src="./img/cartes/doree.webp" alt="" loading="lazy" />
+                <h3>Frédéric</h3>
+                <p class="titre">Barbier</p>
+              </div>
+              <div class="face verso">
+                <h3>Frédéric</h3>
+                <p>Les dégradés, la barbe et le rasage crânien à la lame droite.</p>
+                <a class="btn btn-principal cta-booksy" href="https://lamaisonmoreno.booksy.com" target="_blank" rel="noopener noreferrer">Réserver avec Frédéric</a>
+              </div>
+            </div>
+            <button type="button" aria-pressed="false">Voir les spécialités de Frédéric</button>
+          </li>
+          <li class="cartel">
+            <div class="cartel-interieur">
+              <div class="face recto">
+                <img src="./img/cartes/fauteuil.webp" alt="" loading="lazy" />
+                <h3>Vivi</h3>
+                <p class="titre">Barbière</p>
+              </div>
+              <div class="face verso">
+                <h3>Vivi</h3>
+                <p>Coupe, barbe et rasage crânien à la lame droite.</p>
+                <a class="btn btn-principal cta-booksy" href="https://lamaisonmoreno.booksy.com" target="_blank" rel="noopener noreferrer">Réserver avec Vivi</a>
+              </div>
+            </div>
+            <button type="button" aria-pressed="false">Voir les spécialités de Vivi</button>
+          </li>
+          <li class="cartel">
+            <div class="cartel-interieur">
+              <div class="face recto">
+                <img src="./img/cartes/cadres.webp" alt="" loading="lazy" />
+                <h3>Olivia</h3>
+                <p class="titre"><span class="a-confirmer">Rôle à confirmer</span></p>
+              </div>
+              <div class="face verso">
+                <h3>Olivia</h3>
+                <p><span class="a-confirmer">Spécialités à confirmer.</span></p>
+                <a class="btn btn-principal cta-booksy" href="https://lamaisonmoreno.booksy.com" target="_blank" rel="noopener noreferrer">Réserver avec Olivia</a>
+              </div>
+            </div>
+            <button type="button" aria-pressed="false">Voir les spécialités de Olivia</button>
+          </li>
         </ul>
       </div>
     </section>
@@ -127,7 +232,9 @@
       <div class="contenu">
         <h2 id="t-avis">Le livre d'or</h2>
         <p class="chapo">5,0 sur 5 sur Google (144 avis) et sur Booksy (324 avis).</p>
-        <div class="citations">
+        <div class="carrousel" aria-roledescription="carrousel" aria-label="Avis de clients">
+          <div class="carrousel-scene">
+            <div class="anneau citations">
           <figure class="citation">
             <blockquote><p>Excellent service! Mon conjoint est toujours très satisfait de ses rendez-vous avec Fred. L’accueil est chaleureux, il est très flexible dans ses disponibilités et maîtrise parfaitement les coupes avec un « fade ». On le recommande sans hésitation!</p></blockquote>
             <figcaption>Camille F., avis Google</figcaption>
@@ -144,6 +251,16 @@
             <blockquote><p>Best Barbers in town by far!!!</p></blockquote>
             <figcaption>Nick, avis Booksy</figcaption>
           </figure>
+          <figure class="citation">
+            <blockquote><p>Tres méticuleux, attentionnée, belle ambiance et deco.</p></blockquote>
+            <figcaption>Extrait du résumé des avis Google</figcaption>
+          </figure>
+            </div>
+          </div>
+          <p class="carrousel-commandes">
+            <button type="button" class="btn btn-secondaire carrousel-precedent">Avis précédent</button>
+            <button type="button" class="btn btn-secondaire carrousel-suivant">Avis suivant</button>
+          </p>
         </div>
       </div>
     </section>

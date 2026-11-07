@@ -5,12 +5,15 @@ import "./style.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { creerFilm } from "./film.js";
+import { inclinerCartes, retournerCartels } from "./cartes3d.js";
+import { creerCarrousel } from "./carrousel.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const params = new URLSearchParams(location.search);
 const racine = document.documentElement;
 const reduit = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mobile = matchMedia("(max-width: 820px), (pointer: coarse)").matches;
 racine.dataset.mouvement = reduit ? "reduit" : "plein";
 
 async function demarrerFilm() {
@@ -29,10 +32,16 @@ async function demarrerFilm() {
   });
 }
 
+function coteDuTemps(temps) {
+  if (temps.classList.contains("cote-droit")) return "droit";
+  if (temps.classList.contains("cote-centre")) return "centre";
+  return "gauche";
+}
+
 // Un seul temps actif à la fois ; le voile passe du côté de son texte.
 function suivreLesTemps() {
   for (const temps of document.querySelectorAll(".temps")) {
-    const cote = temps.classList.contains("cote-droit") ? "droit" : temps.classList.contains("cote-centre") ? "centre" : "gauche";
+    const cote = coteDuTemps(temps);
     ScrollTrigger.create({
       trigger: temps,
       start: "top center",
@@ -45,23 +54,41 @@ function suivreLesTemps() {
   }
 }
 
-const mobile = matchMedia("(max-width: 820px), (pointer: coarse)").matches;
-
 async function demarrerScene() {
-  const { creerScene } = await import("./scene.js");
+  // Tous les modules d'abord : la scène ne se déclare prête qu'une fois toutes ses couches en place.
+  const [{ creerScene }, { creerPoussiere }, { creerVapeur }, { creerPlafond }] = await Promise.all([
+    import("./scene.js"),
+    import("./poussiere.js"),
+    import("./vapeur.js"),
+    import("./plafond.js"),
+  ]);
   const scene = await creerScene({ canvas: document.getElementById("scene"), mobile });
   if (!scene) return null;
-  const { creerPoussiere } = await import("./poussiere.js");
+
+  // La poussière ne flotte que tant que la visite filmée remplit l'écran.
   const poussiere = creerPoussiere(scene.THREE, { nombre: mobile ? 300 : 900, couleurs: ["#F2C97A", "#D5B27C"] });
   scene.ajouter(poussiere.points);
   scene.surImage(poussiere.animer);
-  // La poussière ne flotte que tant que la visite filmée remplit l'écran.
   const histoire = document.getElementById("histoire");
   scene.surImage(() => {
     poussiere.points.visible = histoire.getBoundingClientRect().bottom >= innerHeight;
   });
-  const { demarrerTransitions } = await import("./transitions.js");
-  await demarrerTransitions(scene, { mobile });
+
+  // Fond sombre qui monte avec les sections, vapeur à leur lisière, plafond hexagonal vivant derrière.
+  const vapeur = creerVapeur(scene.THREE);
+  const plafond = creerPlafond(scene.THREE, { camera: scene.camera, mobile });
+  scene.ajouter(vapeur.fond);
+  scene.ajouter(plafond.groupe);
+  scene.ajouter(vapeur.vapeur);
+  const premiere = document.getElementById("services");
+  const suivantes = [...document.querySelectorAll("#equipe, #avis, #nous-trouver, footer")];
+  scene.surImage((dt, temps) => {
+    const hauteur = innerHeight;
+    const ratio = scene.renderer.getPixelRatio();
+    const premier = premiere.getBoundingClientRect().top;
+    vapeur.maj({ premier, suivants: suivantes.map((s) => s.getBoundingClientRect().top), hauteur, ratio, temps });
+    plafond.maj({ bordGL: (hauteur - premier) * ratio, temps, dt });
+  });
   ScrollTrigger.refresh();
   return scene;
 }
@@ -91,9 +118,13 @@ ScrollTrigger.create({
 
 const quandLibre = window.requestIdleCallback || ((f) => setTimeout(f, 200));
 
+retournerCartels(".cartel");
+
 if (reduit) {
   racine.dataset.scene = "off";
 } else {
+  inclinerCartes(".carte-service, .cartel");
+  creerCarrousel(document.querySelector(".carrousel"));
   quandLibre(() =>
     demarrerScene()
       .then((scene) => scene || fonduSansScene())

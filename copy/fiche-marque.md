@@ -87,7 +87,9 @@ Remplacé par les vraies photos du client (décision du client). Affiche : premi
 - Pas de boutons en pilule, pas de titres en dégradé, pas d'émojis comme icônes, pas de trois cartes identiques en rangée.
 - Pas de dégradé violet-bleu, pas d'effet verre, pas de grandes zones bleu vif, pas de numéro de téléphone géant posé dans le vide.
 - Pas de site « barbier de luxe » noir et doré générique.
-- Pas de cadre doré par-dessus un texte en cours de lecture (ajouté en phase 4).
+- Pas de cadre doré en 3D comme transition : le client ne l'aime pas (phase 5).
+- Pas de sections « journal » : colonnes de texte et listes sans images ni interaction (phase 5).
 
 ## 18. Expérience
-Option A : film cinématique au défilement (Kling 4.0 via OpenArt, 12 s, 1080p, généré à partir des 3 photos du client), poussière dorée en Three.js par-dessus. Transitions entre sections : le cadre doré en 3D, que la caméra traverse.
+Option A : film cinématique au défilement (Kling 4.0 via OpenArt, 12 s, 1080p, généré à partir des 3 photos du client), poussière dorée en Three.js par-dessus. Transitions entre sections : la vapeur. La première section monte par-dessus le film, avec un bord de vapeur chaude qui s'élève ; des volutes plus légères au passage des sections suivantes (shader Three.js).
+Interactions 3D (phase 5) : plafond hexagonal vivant derrière les sections (les alvéoles s'allument sous la souris ou le doigt) ; services en cartes 3D faites des vraies photos du salon, qui s'inclinent ; équipe en cartes qu'on retourne ; avis en carrousel 3D.

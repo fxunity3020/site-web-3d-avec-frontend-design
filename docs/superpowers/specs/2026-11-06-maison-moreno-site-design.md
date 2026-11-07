@@ -49,7 +49,7 @@ On ne se sent pas pressé. Le travail est méticuleux, les dégradés sont maît
 | Hero | Visite filmée du vrai salon : départ à droite sur les stations, tour par le salon d'attente, arrivée sous le plafond hexagonal |
 | Film | Kling 4.0 via OpenArt, généré à partir des 3 photos du client, approuvé : « parfait comme vidéo ». 12 s, 1080p, sans son (`assets/videos/moreno-film.mp4`) |
 | Méthode de génération | Celle du skill `site-10k-pme`, uniquement pour la génération des médias |
-| Transitions entre sections | **Le cadre doré** : un cadre ancien sculpté et doré, en vraie 3D (Three.js), s'avance au défilement. La caméra le traverse et la section suivante apparaît à l'intérieur, comme si on entrait dans un tableau du salon. Les reflets dorés bougent avec la lumière. Une seule transition, utilisée partout. Allégée sur téléphone, remplacée par un fondu si l'utilisateur a demandé moins de mouvement. |
+| Transitions entre sections | ~~Le cadre doré~~ retiré à la demande du client (phase 5), remplacé par **la vapeur** et des interactions 3D (voir `copy/fiche-marque.md`, section 18). Ancienne description : **Le cadre doré** : un cadre ancien sculpté et doré, en vraie 3D (Three.js), s'avance au défilement. La caméra le traverse et la section suivante apparaît à l'intérieur, comme si on entrait dans un tableau du salon. Les reflets dorés bougent avec la lumière. Une seule transition, utilisée partout. Allégée sur téléphone, remplacée par un fondu si l'utilisateur a demandé moins de mouvement. |
 
 ## 4. Structure de la page (proposition)
 
