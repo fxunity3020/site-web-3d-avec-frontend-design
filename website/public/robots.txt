@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lamaisonmoreno.pages.dev/sitemap.xml
